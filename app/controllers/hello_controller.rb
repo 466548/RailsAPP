@@ -1,6 +1,14 @@
 class HelloController < ApplicationController
   def index
-    @title = "View Sample"
-    @msg = "コントローラーに用意した値です"
+    if params['msg'] != nil then
+      @title = params['msg']
+    else
+      @title = 'index'
+  end
+  @msg = 'nemuiiiiiiiiiii'
+  end
+
+  def other
+    redirect_to action: :index, params: {'msg': 'from other page'}
   end
 end
